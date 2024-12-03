@@ -129,3 +129,21 @@ Non-linear data structures do not store elements sequentially, and each element 
   A set of vertices and edges where nodes (vertices) are connected by links (edges).
 
 ---
+
+
+## **3. Python-Specific Data Structures**
+Python provides specialized data structures that enhance flexibility and performance.
+
+- **List**  
+  Similar to an array but can store elements of different data types, such as numbers and strings.
+
+- **Tuple**  
+  Similar to a list but **immutable**, meaning its values cannot be modified after creation.
+
+- **Dictionary**  
+  Stores data in **Key-Value Pairs**, allowing fast access using keys instead of indices.
+
+
+
+
+
