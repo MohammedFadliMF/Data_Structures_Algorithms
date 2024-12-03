@@ -110,3 +110,22 @@ Linear data structures store elements in a sequential order, and each element is
 
 ---
 
+
+## **2. Non-Linear Data Structures**
+Non-linear data structures do not store elements sequentially, and each element can connect to multiple elements.
+
+- **Binary Tree**  
+  A hierarchical data structure where each element (node) can have at most two children and begins with a root node.
+
+- **Heap**  
+  A specialized tree-based data structure where:  
+  - The parent node's value is either greater than or equal to (Max-Heap) or  
+  - Less than or equal to (Min-Heap) its child nodes.
+
+- **Hash Table**  
+  An array-like data structure where elements are accessed using keys rather than indices, utilizing a hash function.
+
+- **Graph**  
+  A set of vertices and edges where nodes (vertices) are connected by links (edges).
+
+---
