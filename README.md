@@ -30,3 +30,83 @@ Here's a [**systematic problem-solving-strategy**](https://jovian.ai/aakashns/py
 [more details](https://jovian.ai/aakashns/python-binary-search) 
 ---
 
+## **1. Linear Data Structures**
+Linear data structures store elements in a sequential order, and each element is connected to its previous and next elements (where applicable).
+
+- **Array**  
+  A sequential arrangement of data elements paired with the index of the data element.  
+
+  ![Array Example](images/image-1.png)
+
+  **Example:** 
+
+  ![alt text](images/image.png)
+
+  It will produce the following output −
+
+  ![alt text](images/image-3.png)
+
+  Python array type is decided by a single character Typecode argument. The type codes and the intended data type of array is listed below −
+
+  ![alt text](images/image-2.png)
+
+  **Basic Operations on Python Arrays:** 
+
+  ![alt text](images/image-4.png)
+
+   **10**
+   **60**
+   **20**
+   **30**
+   **40**
+   **50**
+
+  ![alt text](images/image-5.png)
+
+   **10**
+   **20**
+   **30**
+   **50**
+
+  ![alt text](images/image-6.png)
+
+   **3**
+
+  ![alt text](images/image-7.png)
+
+   **10**
+   **20**
+   **80**
+   **40**
+   **50**
+
+  ![alt text](images/image-8.png)
+
+  ![alt text](images/image-9.png)
+
+  ![alt text](images/image-10.png)
+
+  ![alt text](images/image-11.png)
+
+  ![alt text](images/image-12.png)
+
+  ![alt text](images/image-13.png)
+
+  ![alt text](images/image-14.png)
+
+- **Linked List**  
+  Each data element contains a link to another element, along with the data present in it.
+
+- **Stack**  
+  A data structure that follows a specific order of operation:  
+  - **LIFO** (Last In, First Out) or  
+  - **FILO** (First In, Last Out).
+
+- **Queue**  
+  Similar to Stack but follows a **FIFO** (First In, First Out) order of operation.
+
+- **Matrix**  
+  A two-dimensional data structure where each element is referred to by a pair of indices.
+
+---
+
