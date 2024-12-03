@@ -12,3 +12,21 @@ It's well known, however, that you will almost never face these problems in your
 4. Most importantly, you can **convert your thoughts and ideas into working code** that's also readable.
 
 It's not your knowledge of specific data structures or algorithms that's tested in an interview, but your approach towards the problem. You may fail to solve the problem and still clear the interview or vice versa. In this course, you will learn the skills to both solve problems and clear interviews successfully.
+
+## Problem-Solving Strategy
+Upon reading the problem, you may get some ideas on how to solve it and your first instinct might be to start writing code. This is not the optimal strategy and you may end up spending a longer time trying to solve the problem due to coding errors, or may not be able to solve it at all.
+
+Here's a [**systematic problem-solving-strategy**](https://jovian.ai/aakashns/python-binary-search):
+
+1. State **the problem clearly**. Identify the input & output formats.
+2. Come up with some example **inputs & outputs**. Try to cover all edge cases.
+3. Come up with a correct solution for the problem. State it in plain English.
+4. Implement the solution and **test** it using example inputs. **Fix bugs**, if any.
+5. Analyze **the algorithm's complexity** and identify inefficiencies, if any.
+6. Apply the right technique to overcome the inefficiency. Repeat steps 3 to 6.
+
+**"Applying the right technique"** is where the knowledge of common data structures and algorithms comes in handy.
+
+[more details](https://jovian.ai/aakashns/python-binary-search) 
+---
+
