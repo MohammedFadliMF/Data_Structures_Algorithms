@@ -296,7 +296,84 @@ def tamiser(arb, noeud, max):
         arb[noeud], arb[plus_grand] = arb[plus_grand], arb[noeud]  # Échanger
         tamiser(arb, plus_grand, max)  # Tamiser récursivement le sous-arbre affecté
 
-# Les arbres binaires généalogiques
+# Les arbres binaires généalogiques:
+        #           Vous
+        #         /       \
+        #      Père        Mère
+        #     /    \      /    \
+        # GPère GMère   GPère  GMère
+# retourne le niveau du plus ancien grand père 
+def GrandPere(F):
+    if not F:
+        return -1  # Cas de base : arbre vide
+    
+    # Si le sous-arbre gauche (père) existe, on explore récursivement
+    if F[1]:  # Sous-arbre gauche (père)
+        return 1 + GrandPere(F[1])  # Ajouter 1 pour chaque génération
+    else:
+        return 0  # Si le père n'existe pas, on retourne 0
+def grandPere(F):
+    if not F:
+        return -1  # Cas de base : arbre vide
+    
+    niveau= grandPere(F[1])  
+    return 1 + niveau  
+# NbPesNom(F,prenom) retourne le nombre de personnes qui portent prenom
+def NbPesNom(F, prenom):
+    """
+    Retourne le nombre de personnes portant le prénom `prenom` dans l'arbre généalogique F.
+    :param F: Liste représentant l'arbre généalogique.
+    :param prenom: Le prénom à rechercher.
+    :return: Le nombre de personnes portant ce prénom.
+    """
+    if not F:
+        return 0  # Cas de base : arbre vide
+    
+    # Compter 1 si le prénom de la personne actuelle correspond
+    count = 1 if F[0] == prenom else 0
+    
+    # Ajouter les résultats des sous-arbres gauche (père) et droit (mère)
+    count += NbPesNom(F[1], prenom)  # Sous-arbre gauche (père)
+    count += NbPesNom(F[2], prenom)  # Sous-arbre droit (mère)
+    
+    return count
+# Retourne le nombre de personnes dans la famille F jusqu'au plus ancien grand-père.
+def NbPesFam(F):
+    if not F:
+        return 0  # Cas de base : arbre vide
+    
+    # Compter la personne actuelle et continuer récursivement avec le père
+    return 1 + NbPesFam(F[1])  # Sous-arbre gauche (père)
+def NbPesFam_itertive(F):
+    count = 0  # Initialiser le compteur
+    current = F  # Pointeur pour parcourir l'arbre
+    
+    while current:  # Tant que l'arbre n'est pas vide
+        count += 1  # Compter la personne actuelle
+        current = current[1]  # Passer au père (sous-arbre gauche)
+    
+    return count
+# Retourne le niveau de la personne désignée par le prénom dans l'arbre généalogique.
+def NivPersonne(F, prenom):
+    if not F:
+        return -1  # Cas de base : arbre vide
+    
+    niveau = 0  # Initialiser le niveau
+    queue = [(F, niveau)]  # File de priorite pour le parcours en largeur (BFS)
+    
+    while queue:  # Tant que la file n'est pas vide
+        current_node, current_niveau = queue.pop(0)  # Prendre le premier élément de la file
+        
+        if current_node[0] == prenom:  # Si le prénom correspond
+            return current_niveau  # Retourner le niveau actuel
+        
+        # Ajouter les enfants à la file avec leur niveau respectif
+        if current_node[1]:  # Sous-arbre gauche (père)
+            queue.append((current_node[1], current_niveau + 1))
+        if current_node[2]:  # Sous-arbre droit (mère)
+            queue.append((current_node[2], current_niveau + 1))
+    
+    return -1  # Si la personne n'est pas trouvée
 
 # Fonction pour afficher l'arbre avec des branches
 def afficher_arbre(arbre, niveau=0, prefixe=""):
@@ -311,33 +388,47 @@ def afficher_arbre(arbre, niveau=0, prefixe=""):
 
 
 # Exemple
-arbre = [10, [5, [2, [], []], [7, [], []]], [15, [6, [], []], [20, [], []]]]
+# arbre = [10, [5, [2, [], []], [7, [], []]], [15, [6, [], []], [20, [], []]]]
 
-afficher_arbre(arbre)
+# afficher_arbre(arbre)
+
+
+# print("Hauteur de l'arbre :", hauteur(arbre))  # Output: 2
+
+# print("DFS Pré-ordre:", dfs_pre_order(arbre))
+# print("DFS In-ordre:", dfs_in_order(arbre))
+# print("DFS Post-ordre:", dfs_post_order(arbre))
+# print("BFS:", bfs(arbre))
+
+# Exemple d'utilisation Suppression dans un arbre 
 
 # print("Avant suppression :", arbre)
 # arbre = delete_node_binary_search_tree(arbre, 5)
 # print("Après suppression :", arbre)
 
-# print("Hauteur de l'arbre :", hauteur(arbre))  # Output: 2
+# arbre = ["A", ["B", ["D", [], []], ["E", [], []]], ["C", [], ["F", [], []]]]
+# print("Avant suppression :", arbre)
+# arbre = delete_node_general_tree(arbre, "B")
+# print("Après suppression de B:", arbre)
 
-print("DFS Pré-ordre:", dfs_pre_order(arbre))
-print("DFS In-ordre:", dfs_in_order(arbre))
-print("DFS Post-ordre:", dfs_post_order(arbre))
-print("BFS:", bfs(arbre))
-
-# Exemple d'utilisation Suppression dans un arbre général
-arbre = ["A", ["B", ["D", [], []], ["E", [], []]], ["C", [], ["F", [], []]]]
-print("Avant suppression :", arbre)
-arbre = delete_node_general_tree(arbre, "B")
-print("Après suppression de B:", arbre)
-
-tableau = [2,5,3,89,3,23,12,56]
-tri_par_tas(tableau)
-print("Tableau trié :", tableau)
+# Exemple tri_par_tas
+# tableau = [2,5,3,89,3,23,12,56]
+# tri_par_tas(tableau)
+# print("Tableau trié :", tableau)
 
 # Exemple tamisage
-arb=[10, 5, 15, 2, 7, 12]
-print(arb)
-tamiser(arb, 1, 5)
-print(arb)
+# arb=[10, 5, 15, 2, 7, 12]
+# print(arb)
+# tamiser(arb, 1, 5)
+# print(arb)
+
+# Exemple Les arbres binaires généalogiques
+arbre = ["Alice", ["Bob", ["Charlie", [], []], ["David", [], []]], ["Eve", ["Fiona", [], []], ["George", [], []]]]
+print("Hauteur de l'arbre généalogique :", hauteur(arbre)) 
+print("Nombre des noeuds:", nbrnoeuds(arbre)) 
+niveau = GrandPere(arbre)
+print("Niveau du plus ancien grand-père :", grandPere(arbre))
+print("Le nombre de personnes dans la lignée paternelle jusqu'au plus ancien grand-père :", NbPesFam(arbre))
+prenom="Eve"
+print("Niveau :", NivPersonne(arbre,prenom))
+
