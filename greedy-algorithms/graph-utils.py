@@ -29,7 +29,7 @@ def degre(s, M):
 
 def DFS(graph, start):
     visited = set()  # Ensemble pour stocker les sommets visités
-    stack = [start]  # Pile pour gérer les sommets à visiter
+    stack = [start]  # Pile pour gérer les sommets à visiter (LIFO)
 
     while stack:
         vertex = stack.pop()  # Dépiler un sommet
@@ -45,7 +45,7 @@ from collections import deque
 
 def BFS(graph, start):
     visited = set()  # Ensemble pour stocker les sommets visités
-    queue = deque([start])  # File pour gérer les sommets à visiter
+    queue = deque([start])  # File pour gérer les sommets à visiter (FIFO)
 
     while queue:
         vertex = queue.popleft()  # Défiler un sommet
